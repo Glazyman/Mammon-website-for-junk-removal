@@ -478,13 +478,6 @@ body {
   gap: 1rem;
 }
 
-@media (min-width: 800px) {
-  .quotes--stack {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
 .g-review-card {
   margin: 0;
   padding: 1.25rem;
