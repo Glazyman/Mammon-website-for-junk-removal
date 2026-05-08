@@ -2,6 +2,18 @@
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
+  function headerSolidOnScroll() {
+    var header = document.getElementById('site-header');
+    var hero = document.querySelector('.hero');
+    if (!header || !hero) return;
+    var threshold = Math.max(hero.offsetHeight - 72, 48);
+    header.classList.toggle('site-header--solid', window.scrollY > threshold);
+  }
+
+  window.addEventListener('scroll', headerSolidOnScroll, { passive: true });
+  window.addEventListener('resize', headerSolidOnScroll, { passive: true });
+  headerSolidOnScroll();
+
   function escapeHtml(s) {
     var d = document.createElement('div');
     d.textContent = s == null ? '' : String(s);
@@ -24,15 +36,13 @@
 
   async function loadGoogleReviews() {
     var feed = document.getElementById('google-reviews-feed');
-    var fallback = document.getElementById('reviews-fallback');
-    if (!feed || !fallback) return;
+    if (!feed) return;
     try {
       var res = await fetch('reviews.json', { cache: 'no-store' });
       if (!res.ok) return;
       var data = await res.json();
       var reviews = Array.isArray(data.reviews) ? data.reviews : [];
       if (!reviews.length) return;
-      fallback.hidden = true;
       feed.innerHTML = reviews
         .slice(0, 12)
         .map(function (r) {

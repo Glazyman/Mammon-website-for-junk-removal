@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <!--
     CONTACT CONFIG:
@@ -18,38 +18,48 @@
     PHONE_DISPLAY: +1 (917) 715-6245
     WHATSAPP: https://wa.me/19177156245
     GOOGLE_REVIEW_SHARE: https://share.google/3RiDHWjnVz6LelkAP (from Google Business Profile → Ask for reviews)
-    REVIEWS_JSON: Optional reviews.json entries [{ author, rating 1-5, text }] — non-empty list replaces sample quotes.
+    REVIEWS_JSON: reviews.json [{ author, rating 1-5, text, relative_time? }] populates #google-reviews-feed.
   -->
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="wrap site-header__inner">
-      <a class="logo" href="#">Mr.<span class="logo__accent"> Junk Junk Removal</span></a>
+      <a class="logo" href="#main">
+        <span class="logo__wordmark"><span class="logo__name">Mr.</span><span class="logo__accent"> Junk</span><span class="logo__tail"> removal</span></span>
+      </a>
       <nav class="nav" aria-label="Primary">
         <a href="#services">Services</a>
         <a href="#why-us">Why us</a>
         <a href="#reviews">Reviews</a>
         <a href="#contact-area">Area &amp; hours</a>
       </nav>
-      <a class="btn btn--call btn--sm" href="tel:+19177156245"><span aria-hidden="true">📞</span> Call now</a>
+      <a class="btn btn--call btn--sm btn--nav-cta" href="tel:+19177156245">Book now</a>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero">
-      <div class="hero__media" role="img" aria-label="Junk removal truck and hauling"></div>
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero__media" role="img" aria-label="Heavy equipment at work — junk removal and hauling"></div>
+      <div class="hero__gridlines" aria-hidden="true"></div>
       <div class="hero__overlay"></div>
-      <div class="wrap hero__content">
-        <p class="eyebrow">Local • Licensed &amp; insured mindset • Eco-conscious disposal</p>
-        <h1 class="hero__title">Reclaim your space with <strong>Mr. Junk Junk Removal</strong></h1>
-        <p class="hero__lede">Fast, friendly hauling for furniture, appliances, yard waste, cleanouts, and construction debris. We handle the heavy lifting so you don’t have to.</p>
-        <div class="hero__actions">
-          <a class="btn btn--call" href="tel:+19177156245">Call <span class="nowrap">+1 (917) 715-6245</span></a>
-          <a class="btn btn--outline" href="https://wa.me/19177156245" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-          <a class="btn btn--ghost" href="https://www.google.com/maps/place/Mr+Junk+-+Junk+Removal/@40.7220621,-74.9565203,9z/data=!4m10!1m2!2m1!1smr+junk+junk+removal+!3m6!1s0x6c69f36ce8c59aaf:0x9f833c13807bd014!8m2!3d41.1559894!4d-74.0710441!15sChRtciBqdW5rIGp1bmsgcmVtb3ZhbFoWIhRtciBqdW5rIGp1bmsgcmVtb3ZhbJIBFGp1bmtfcmVtb3ZhbF9zZXJ2aWNlmgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ4b1ZGSlhUbWhqUldONldWaGFSMVpYU2pGT2VrNDFWMjV3YmxkVlJSQULgAQD6AQUIyAIQSQ!16s%2Fg%2F11yxbpsdrc?entry=ttu&amp;g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
-          <a class="btn btn--google" href="https://share.google/3RiDHWjnVz6LelkAP" target="_blank" rel="noopener noreferrer">Review us on Google</a>
+      <div class="wrap hero__layout">
+        <div class="hero__centerpiece">
+          <p class="hero__eyebrow">Northern NJ · Eco-conscious disposal · Same-week scheduling</p>
+          <h1 class="hero__mega" id="hero-heading">
+            <span class="hero__mega-line">Junk removal</span>
+            <span class="hero__mega-line hero__mega-line--accent">&amp; hauling</span>
+          </h1>
+        </div>
+        <div class="hero__bottom">
+          <p class="hero__strap">Turning cluttered spaces into a clean slate — so you can move forward.</p>
+          <div class="hero__actions">
+            <a class="btn btn--call" href="tel:+19177156245">Call <span class="nowrap">+1 (917) 715-6245</span></a>
+            <a class="btn btn--outline" href="https://wa.me/19177156245" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a class="btn btn--ghost" href="https://www.google.com/maps/place/Mr+Junk+-+Junk+Removal/@40.7220621,-74.9565203,9z/data=!4m10!1m2!2m1!1smr+junk+junk+removal+!3m6!1s0x6c69f36ce8c59aaf:0x9f833c13807bd014!8m2!3d41.1559894!4d-74.0710441!15sChRtciBqdW5rIGp1bmsgcmVtb3ZhbFoWIhRtciBqdW5rIGp1bmsgcmVtb3ZhbJIBFGp1bmtfcmVtb3ZhbF9zZXJ2aWNlmgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ4b1ZGSlhUbWhqUldONldWaGFSMVpYU2pGT2VrNDFWMjV3YmxkVlJSQULgAQD6AQUIyAIQSQ!16s%2Fg%2F11yxbpsdrc?entry=ttu&amp;g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Google Maps</a>
+            <a class="btn btn--google" href="https://share.google/3RiDHWjnVz6LelkAP" target="_blank" rel="noopener noreferrer">Review us</a>
+          </div>
         </div>
       </div>
     </section>
@@ -130,24 +140,9 @@
           </div>
           <div class="google-reviews-stack">
             <div id="google-reviews-feed" class="google-reviews-feed" aria-live="polite"></div>
-            <div id="reviews-fallback" class="quotes quotes--stack">
-              <blockquote class="quote">
-                <p>“Fast response and careful with our driveway. Everything gone in one trip — couldn’t be easier.”</p>
-                <cite>— Local homeowner</cite>
-              </blockquote>
-              <blockquote class="quote">
-                <p>“Fair price and professional crew. They swept up after themselves — rare these days.”</p>
-                <cite>— Renovation customer</cite>
-              </blockquote>
-              <blockquote class="quote">
-                <p>“Handled a full basement cleanout in an afternoon. Highly recommend Mr. Junk.”</p>
-                <cite>— Repeat customer</cite>
-              </blockquote>
-            </div>
           </div>
         </div>
         <div class="reviews-cta">
-          <a class="btn btn--outline" href="https://www.google.com/maps/place/Mr+Junk+-+Junk+Removal/@40.7220621,-74.9565203,9z/data=!4m10!1m2!2m1!1smr+junk+junk+removal+!3m6!1s0x6c69f36ce8c59aaf:0x9f833c13807bd014!8m2!3d41.1559894!4d-74.0710441!15sChRtciBqdW5rIGp1bmsgcmVtb3ZhbFoWIhRtciBqdW5rIGp1bmsgcmVtb3ZhbJIBFGp1bmtfcmVtb3ZhbF9zZXJ2aWNlmgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ4b1ZGSlhUbWhqUldONldWaGFSMVpYU2pGT2VrNDFWMjV3YmxkVlJSQULgAQD6AQUIyAIQSQ!16s%2Fg%2F11yxbpsdrc?entry=ttu&amp;g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Read reviews on Google</a>
           <a class="btn btn--google" href="https://share.google/3RiDHWjnVz6LelkAP" target="_blank" rel="noopener noreferrer">Review us on Google</a>
         </div>
       </div>
