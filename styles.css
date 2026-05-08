@@ -13,6 +13,10 @@
   --accent-hover: #0d7345;
   --accent-soft: rgba(10, 92, 56, 0.28);
   --accent-ink: #ffffff;
+  --wa-green: #25d366;
+  --wa-green-hover: #1ebe57;
+  --wa-green-soft: rgba(37, 211, 102, 0.16);
+  --call-ink: #052818;
   --border: rgba(255, 255, 255, 0.08);
   --radius: 4px;
   --radius-lg: 8px;
@@ -289,22 +293,24 @@ html.nav-scroll-lock body {
 }
 
 .btn--call {
-  background: var(--accent);
-  color: var(--accent-ink);
+  background: var(--brand-yellow);
+  color: var(--call-ink);
 }
 
 .btn--call:hover {
-  background: var(--accent-hover);
+  background: #ffe066;
 }
 
 .btn--outline {
   background: transparent;
-  border-color: var(--brand-yellow);
-  color: var(--brand-yellow-muted);
+  border-color: var(--wa-green);
+  color: var(--wa-green);
 }
 
 .btn--outline:hover {
-  background: var(--brand-yellow-soft);
+  background: var(--wa-green-soft);
+  border-color: var(--wa-green-hover);
+  color: var(--wa-green);
 }
 
 .btn--ghost {
@@ -486,34 +492,17 @@ html.nav-scroll-lock body {
   font-size: 1.02rem;
 }
 
-.intro__grid {
-  display: grid;
-  gap: 2.5rem;
-  align-items: center;
+.intro__text {
+  max-width: 65ch;
 }
 
-@media (min-width: 840px) {
-  .intro__grid {
-    grid-template-columns: 1fr 1fr;
-  }
+.intro__text p {
+  margin: 0 0 1rem;
+  font-size: 1.02rem;
 }
 
-.intro__figure {
-  margin: 0;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-}
-
-.intro__figure img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.intro__figure--brand {
-  background: #f4f5f0;
+.intro__text p:last-child {
+  margin-bottom: 0;
 }
 
 /* Cards */
@@ -747,7 +736,6 @@ html.nav-scroll-lock body {
     align-items: start;
   }
 
-  .footer__credit,
   .footer__copy {
     grid-column: 1 / -1;
   }
@@ -785,23 +773,14 @@ html.nav-scroll-lock body {
   font-size: 0.8125rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--brand-yellow);
   font-weight: 600;
   text-decoration: none;
 }
 
 .footer__links a:hover {
+  color: #ffe066;
   text-decoration: underline;
-}
-
-.footer__credit {
-  margin: 0;
-  font-size: 0.8125rem;
-  color: var(--text-muted);
-}
-
-.footer__credit a {
-  color: var(--text-muted);
 }
 
 .footer__copy {
