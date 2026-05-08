@@ -40,6 +40,19 @@ body {
   background: var(--bg);
 }
 
+/* iOS Safari: freeze backdrop scroll when the drawer is open (see main.js lockBodyForNav) */
+html.nav-scroll-lock {
+  overflow: hidden;
+}
+
+html.nav-scroll-lock body {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
 .skip-link {
   position: absolute;
   left: -9999px;
@@ -87,6 +100,10 @@ body {
   backdrop-filter: blur(14px);
 }
 
+.nav-backdrop {
+  display: none;
+}
+
 .site-header__inner {
   display: flex;
   align-items: center;
@@ -94,6 +111,7 @@ body {
   padding: 1rem 0;
   position: relative;
   flex-wrap: wrap;
+  z-index: 3;
 }
 
 .logo {
@@ -137,6 +155,22 @@ body {
 }
 
 @media (min-width: 900px) {
+  .nav-backdrop {
+    display: none !important;
+  }
+
+  .nav__book-mobile {
+    display: none !important;
+  }
+
+  .nav__label {
+    display: none !important;
+  }
+
+  .btn--nav-cta-desktop {
+    display: inline-flex !important;
+  }
+
   .nav {
     position: absolute;
     left: 50%;
@@ -174,8 +208,8 @@ body {
   justify-content: center;
   align-items: center;
   gap: 5px;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   padding: 0;
   border: none;
   background: rgba(255, 255, 255, 0.06);
@@ -183,6 +217,8 @@ body {
   cursor: pointer;
   border-radius: var(--radius);
   transition: background 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .nav-toggle:hover {
@@ -813,17 +849,62 @@ body {
     --wrap: min(1180px, calc(100% - 1.25rem));
   }
 
+  .wrap {
+    padding-left: max(0px, env(safe-area-inset-left, 0px));
+    padding-right: max(0px, env(safe-area-inset-right, 0px));
+  }
+
+  .btn--nav-cta-desktop {
+    display: none !important;
+  }
+
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: rgba(5, 8, 12, 0.62);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.28s ease,
+      visibility 0.28s ease;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .site-header.nav-open .nav-backdrop {
+    opacity: 1;
+    visibility: visible;
+  }
+
   .site-header.nav-open {
-    background: rgba(10, 12, 15, 0.98);
-    border-bottom-color: var(--border);
-    backdrop-filter: blur(14px);
+    background: transparent;
+    border-bottom-color: transparent;
+    backdrop-filter: none;
   }
 
   .site-header__inner {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     padding: 0.75rem 0;
-    row-gap: 0;
+  }
+
+  .site-header.nav-open .site-header__inner {
+    background: rgba(10, 12, 15, 0.97);
+    border-radius: var(--radius-lg);
+    padding: 0.65rem max(0.85rem, env(safe-area-inset-right, 0px)) 0.65rem
+      max(0.85rem, env(safe-area-inset-left, 0px));
+  }
+
+  .site-header__actions {
+    flex-shrink: 0;
+    gap: 0;
   }
 
   .logo {
@@ -841,42 +922,92 @@ body {
     display: inline-flex;
   }
 
-  .site-header:not(.nav-open) .nav {
-    display: none;
-  }
-
-  .site-header.nav-open .nav {
+  .site-header .nav {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    flex-basis: 100%;
-    width: 100%;
-    position: static;
-    transform: none;
-    left: auto;
-    gap: 0;
-    padding: 0 0 0.25rem;
-    margin-top: 0.75rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(19rem, calc(100vw - 2rem));
+    max-width: 100vw;
+    margin: 0;
+    padding: max(5.25rem, calc(env(safe-area-inset-top, 0px) + 4.75rem))
+      max(1.25rem, env(safe-area-inset-right, 0px)) max(1.25rem, env(safe-area-inset-bottom, 0px)) 1.25rem;
+    background: var(--surface);
+    border-left: 1px solid var(--border);
+    box-shadow: -16px 0 48px rgba(0, 0, 0, 0.55);
+    gap: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+    z-index: 2;
+    transform: translateX(100%);
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      transform 0.32s cubic-bezier(0.32, 0.72, 0, 1),
+      visibility 0.32s;
   }
 
-  .site-header.nav-open .nav a {
+  .site-header.nav-open .nav {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .nav__book-mobile {
+    order: -2;
+    width: 100%;
+    min-height: 52px;
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+    letter-spacing: 0.14em;
+    box-shadow: 0 6px 24px rgba(34, 197, 94, 0.22);
+  }
+
+  .nav__label {
+    order: -1;
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0.35rem 0 0.25rem;
+    padding-left: 0.2rem;
+  }
+
+  .site-header .nav > a:not(.nav__book) {
     display: flex;
     align-items: center;
-    min-height: 48px;
-    padding: 0.35rem 0;
-    font-size: 0.8125rem;
+    min-height: 52px;
+    padding: 0.65rem 1rem;
+    margin: 0;
+    font-size: 0.9375rem;
     letter-spacing: 0.12em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    text-transform: uppercase;
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition:
+      background 0.15s ease,
+      border-color 0.15s ease;
   }
 
-  .site-header.nav-open .nav a:last-child {
-    border-bottom: none;
+  .site-header .nav > a:not(.nav__book):hover,
+  .site-header .nav > a:not(.nav__book):focus-visible {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+    outline: none;
   }
 
   .hero {
     min-height: min(100vh, 920px);
+    min-height: min(-webkit-fill-available, 920px);
     min-height: min(100dvh, 920px);
     padding-top: clamp(5rem, 18vw, 8rem);
     padding-bottom: clamp(1.75rem, 5vw, 3rem);
@@ -990,5 +1121,15 @@ body {
 
   .btn:active {
     transform: none;
+  }
+
+  .site-header .nav,
+  .nav-backdrop {
+    transition: none !important;
+  }
+
+  .site-header.nav-open .nav-toggle__bar:nth-child(1),
+  .site-header.nav-open .nav-toggle__bar:nth-child(3) {
+    transition: none;
   }
 }

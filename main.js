@@ -6,6 +6,7 @@
     var header = document.getElementById('site-header');
     var hero = document.querySelector('.hero');
     if (!header || !hero) return;
+    if (header.classList.contains('nav-open')) return;
     var threshold = Math.max(hero.offsetHeight - 72, 48);
     header.classList.toggle('site-header--solid', window.scrollY > threshold);
   }
@@ -14,6 +15,21 @@
   window.addEventListener('resize', headerSolidOnScroll, { passive: true });
   headerSolidOnScroll();
 
+  var navScrollLockY = 0;
+
+  function lockBodyForNav() {
+    navScrollLockY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+    document.documentElement.classList.add('nav-scroll-lock');
+    document.body.style.top = '-' + navScrollLockY + 'px';
+  }
+
+  function unlockBodyForNav() {
+    if (!document.documentElement.classList.contains('nav-scroll-lock')) return;
+    document.documentElement.classList.remove('nav-scroll-lock');
+    document.body.style.top = '';
+    window.scrollTo(0, navScrollLockY);
+  }
+
   function closeMobileNav() {
     var header = document.getElementById('site-header');
     var toggle = document.getElementById('nav-toggle');
@@ -21,7 +37,7 @@
     header.classList.remove('nav-open');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open menu');
-    document.body.style.overflow = '';
+    unlockBodyForNav();
     headerSolidOnScroll();
   }
 
@@ -35,10 +51,21 @@
       var open = header.classList.toggle('nav-open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-      document.body.style.overflow = open ? 'hidden' : '';
+      if (open) {
+        lockBodyForNav();
+        header.classList.remove('site-header--solid');
+      } else {
+        unlockBodyForNav();
+        headerSolidOnScroll();
+      }
     });
 
-    nav.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    var backdrop = document.getElementById('nav-backdrop');
+    if (backdrop) {
+      backdrop.addEventListener('click', closeMobileNav);
+    }
+
+    nav.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
         closeMobileNav();
       });
