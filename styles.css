@@ -1,16 +1,19 @@
-/* Mr. Junk Junk Removal — industrial hero layout (green palette preserved) */
+/* Mr. Junk — forest green + yellow brand palette (matches flyer artwork) */
 
 :root {
-  --bg: #0a0c0f;
-  --bg-muted: #12161c;
-  --surface: #181e26;
-  --text: #f1f5f9;
-  --text-muted: #94a3b8;
-  --accent: #22c55e;
-  --accent-hover: #16a34a;
-  --accent-soft: rgba(34, 197, 94, 0.14);
-  --accent-ink: #052e16;
-  --border: rgba(255, 255, 255, 0.07);
+  --bg: #071812;
+  --bg-muted: #0c221a;
+  --surface: #10261f;
+  --text: #f8fafc;
+  --text-muted: #9fb5aa;
+  --brand-yellow: #ffd52e;
+  --brand-yellow-muted: rgba(255, 213, 46, 0.85);
+  --brand-yellow-soft: rgba(255, 213, 46, 0.14);
+  --accent: #0a5c38;
+  --accent-hover: #0d7345;
+  --accent-soft: rgba(10, 92, 56, 0.28);
+  --accent-ink: #ffffff;
+  --border: rgba(255, 255, 255, 0.08);
   --radius: 4px;
   --radius-lg: 8px;
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
@@ -58,8 +61,8 @@ html.nav-scroll-lock body {
   left: -9999px;
   top: auto;
   padding: 0.75rem 1rem;
-  background: var(--accent);
-  color: var(--accent-ink);
+  background: var(--brand-yellow);
+  color: #052818;
   font-weight: 600;
   border-radius: var(--radius);
   z-index: 200;
@@ -95,7 +98,7 @@ html.nav-scroll-lock body {
 }
 
 .site-header.site-header--solid {
-  background: rgba(10, 12, 15, 0.94);
+  background: rgba(7, 24, 18, 0.94);
   border-bottom-color: var(--border);
   backdrop-filter: blur(14px);
 }
@@ -136,7 +139,7 @@ html.nav-scroll-lock body {
 }
 
 .logo__accent {
-  color: var(--accent);
+  color: var(--brand-yellow);
 }
 
 .logo__tail {
@@ -226,7 +229,7 @@ html.nav-scroll-lock body {
 }
 
 .nav-toggle:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--brand-yellow);
   outline-offset: 2px;
 }
 
@@ -296,12 +299,12 @@ html.nav-scroll-lock body {
 
 .btn--outline {
   background: transparent;
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--brand-yellow);
+  color: var(--brand-yellow-muted);
 }
 
 .btn--outline:hover {
-  background: var(--accent-soft);
+  background: var(--brand-yellow-soft);
 }
 
 .btn--ghost {
@@ -369,8 +372,8 @@ html.nav-scroll-lock body {
   inset: 0;
   z-index: 2;
   background:
-    linear-gradient(180deg, rgba(10, 12, 15, 0.72) 0%, rgba(10, 12, 15, 0.35) 38%, rgba(10, 12, 15, 0.82) 85%, var(--bg) 100%),
-    radial-gradient(ellipse 90% 60% at 50% 20%, transparent 0%, rgba(10, 12, 15, 0.55) 100%);
+    linear-gradient(180deg, rgba(7, 24, 18, 0.78) 0%, rgba(7, 24, 18, 0.38) 38%, rgba(7, 24, 18, 0.88) 85%, var(--bg) 100%),
+    radial-gradient(ellipse 90% 60% at 50% 20%, transparent 0%, rgba(7, 24, 18, 0.58) 100%);
 }
 
 .hero__layout {
@@ -414,8 +417,8 @@ html.nav-scroll-lock body {
 }
 
 .hero__mega-line--accent {
-  color: var(--accent);
-  text-shadow: 0 0 48px rgba(34, 197, 94, 0.25);
+  color: var(--brand-yellow);
+  text-shadow: 0 0 52px rgba(255, 213, 46, 0.35);
 }
 
 .hero__bottom {
@@ -509,6 +512,10 @@ html.nav-scroll-lock body {
   height: auto;
 }
 
+.intro__figure--brand {
+  background: #f4f5f0;
+}
+
 /* Cards */
 .cards {
   display: grid;
@@ -518,6 +525,12 @@ html.nav-scroll-lock body {
 @media (min-width: 640px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -582,7 +595,7 @@ html.nav-scroll-lock body {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--brand-yellow-muted);
 }
 
 .why__list span {
@@ -658,7 +671,7 @@ html.nav-scroll-lock body {
   margin: 0 0 0.75rem;
   font-size: 0.9375rem;
   letter-spacing: 0.06em;
-  color: #fbbf24;
+  color: var(--brand-yellow);
 }
 
 .g-review-card__quote {
@@ -896,7 +909,7 @@ html.nav-scroll-lock body {
   }
 
   .site-header.nav-open .site-header__inner {
-    background: rgba(10, 12, 15, 0.97);
+    background: rgba(7, 24, 18, 0.97);
     border-radius: var(--radius-lg);
     padding: 0.65rem max(0.85rem, env(safe-area-inset-right, 0px)) 0.65rem
       max(0.85rem, env(safe-area-inset-left, 0px));
@@ -966,7 +979,7 @@ html.nav-scroll-lock body {
     margin-bottom: 0.25rem;
     font-size: 0.875rem;
     letter-spacing: 0.14em;
-    box-shadow: 0 6px 24px rgba(34, 197, 94, 0.22);
+    box-shadow: 0 6px 28px rgba(255, 213, 46, 0.12);
   }
 
   .nav__label {
