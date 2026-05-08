@@ -18,6 +18,7 @@
   --wa-green-soft: rgba(37, 211, 102, 0.16);
   --call-ink: #052818;
   --border: rgba(255, 255, 255, 0.08);
+  --header-bar-bg: rgba(7, 24, 18, 0.94);
   --radius: 4px;
   --radius-lg: 8px;
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
@@ -102,7 +103,7 @@ html.nav-scroll-lock body {
 }
 
 .site-header.site-header--solid {
-  background: rgba(7, 24, 18, 0.94);
+  background: var(--header-bar-bg);
   border-bottom-color: var(--border);
   backdrop-filter: blur(14px);
 }
