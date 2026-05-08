@@ -34,15 +34,20 @@
       if (!reviews.length) return;
       fallback.hidden = true;
       feed.innerHTML = reviews
-        .slice(0, 6)
+        .slice(0, 12)
         .map(function (r) {
+          var cite =
+            escapeHtml(r.author || 'Google reviewer') +
+            (r.relative_time
+              ? ' · ' + escapeHtml(r.relative_time)
+              : '');
           return (
             '<article class="g-review-card">' +
             starsMarkup(r.rating) +
             '<blockquote class="g-review-card__quote"><p>' +
             escapeHtml(r.text) +
             '</p><cite>' +
-            escapeHtml(r.author || 'Google reviewer') +
+            cite +
             '</cite></blockquote></article>'
           );
         })

@@ -1,3 +1,40 @@
 {
-  "reviews": []
+  "reviews": [
+    {
+      "author": "Gavi Liebowitz",
+      "rating": 5,
+      "relative_time": "2 months ago",
+      "text": "I called Mr Junk to have some really heavy pavers removed and he was the fairest price and showed up really quickly. I would use him again and recommend him to anyone. 10/10"
+    },
+    {
+      "author": "Michelle Rivera",
+      "rating": 5,
+      "relative_time": "3 months ago",
+      "text": "I called Mr. Junk removal on New years Day to get rid of some boxes. It was snowing and they were there within an hour and removed everything and did it professionally and quickly and the price was right. Would highly recommend and would use them again. Thank you"
+    },
+    {
+      "author": "Jennifer Eisenberg",
+      "rating": 5,
+      "relative_time": "2 months ago",
+      "text": "They cleaned up my entire basement of all the junk from a recent move in. Very efficient and affordable."
+    },
+    {
+      "author": "Amy Eisengart",
+      "rating": 5,
+      "relative_time": "3 months ago",
+      "text": "He was reliable and quick."
+    },
+    {
+      "author": "Andrew Greenstein",
+      "rating": 5,
+      "relative_time": "a month ago",
+      "text": "Outstanding Service from Mr. Junk Junk Removal! Mr. Junk - Junk Removal did such an amazing job and were an absolute pleasure to…"
+    },
+    {
+      "author": "J Silver",
+      "rating": 5,
+      "relative_time": "a month ago",
+      "text": "Great to deal with. I would use them again guaranteed."
+    }
+  ]
 }
