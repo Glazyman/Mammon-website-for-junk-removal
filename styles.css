@@ -622,7 +622,7 @@ html.nav-scroll-lock body {
 .google-reviews-layout {
   display: grid;
   gap: 1.5rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 @media (min-width: 900px) {
@@ -646,6 +646,22 @@ html.nav-scroll-lock body {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+@media (min-width: 900px) {
+  .google-reviews-map {
+    aspect-ratio: unset;
+    min-height: 340px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .google-reviews-map iframe {
+    flex: 1 1 auto;
+    min-height: 280px;
+    height: auto;
+  }
 }
 
 .google-reviews-stack {
