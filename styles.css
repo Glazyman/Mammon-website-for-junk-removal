@@ -353,10 +353,18 @@ html.nav-scroll-lock body {
 .hero__media {
   position: absolute;
   inset: 0;
+  z-index: 0;
   background-color: var(--bg-muted);
-  background-image: url("https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=85");
-  background-size: cover;
-  background-position: center 35%;
+  overflow: hidden;
+}
+
+/* Photo lives here — .hero__overlay is only the tint on top */
+.hero__media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 92%;
+  display: block;
 }
 
 .hero__gridlines {
@@ -378,9 +386,16 @@ html.nav-scroll-lock body {
   position: absolute;
   inset: 0;
   z-index: 2;
+  /* No image here — photo is .hero__media-img. Bottom stays lighter so the picture shows through. */
   background:
-    linear-gradient(180deg, rgba(7, 24, 18, 0.78) 0%, rgba(7, 24, 18, 0.38) 38%, rgba(7, 24, 18, 0.88) 85%, var(--bg) 100%),
-    radial-gradient(ellipse 90% 60% at 50% 20%, transparent 0%, rgba(7, 24, 18, 0.58) 100%);
+    linear-gradient(
+      180deg,
+      rgba(7, 24, 18, 0.78) 0%,
+      rgba(7, 24, 18, 0.34) 40%,
+      rgba(7, 24, 18, 0.52) 72%,
+      rgba(7, 24, 18, 0.68) 100%
+    ),
+    radial-gradient(ellipse 90% 60% at 50% 18%, transparent 0%, rgba(7, 24, 18, 0.52) 100%);
 }
 
 .hero__layout {
@@ -429,17 +444,11 @@ html.nav-scroll-lock body {
 }
 
 .hero__bottom {
-  display: grid;
-  gap: 1.5rem;
-  align-items: end;
-}
-
-@media (min-width: 768px) {
-  .hero__bottom {
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 2rem;
-    align-items: end;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.35rem;
 }
 
 .hero__strap {
@@ -451,20 +460,22 @@ html.nav-scroll-lock body {
   text-transform: uppercase;
   line-height: 1.45;
   color: rgba(241, 245, 249, 0.88);
-  max-width: 38ch;
+  max-width: 36ch;
 }
 
 .hero__actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  justify-content: flex-start;
+  justify-content: center;
+  width: 100%;
 }
 
-@media (min-width: 768px) {
-  .hero__actions {
-    justify-content: flex-end;
-  }
+.hero__actions .btn {
+  min-height: 52px;
+  padding: 0.88rem 1.85rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.14em;
+  width: auto;
+  max-width: min(100%, 22rem);
 }
 
 /* Sections */
@@ -711,13 +722,6 @@ html.nav-scroll-lock body {
   color: var(--text-muted);
 }
 
-.fine-print {
-  margin-top: 1rem;
-  font-size: 0.8125rem;
-  color: var(--text-muted);
-}
-
-/* Footer */
 .footer {
   padding: 3rem 0;
   border-top: 1px solid var(--border);
@@ -1019,19 +1023,8 @@ html.nav-scroll-lock body {
   }
 
   .hero__strap {
-    max-width: none;
+    max-width: min(36ch, 100%);
     letter-spacing: 0.1em;
-  }
-
-  .hero__actions {
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-  }
-
-  .hero__actions .btn {
-    width: 100%;
-    min-height: 48px;
   }
 
   .section__subtitle {

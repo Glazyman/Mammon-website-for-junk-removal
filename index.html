@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2">
   <!--
     CONTACT CONFIG:
     PHONE_E164: +19177156245 (tel: links)
@@ -37,10 +37,10 @@
           <span class="nav-toggle__bar" aria-hidden="true"></span>
           <span class="nav-toggle__bar" aria-hidden="true"></span>
         </button>
-        <a class="btn btn--call btn--sm btn--nav-cta btn--nav-cta-desktop" href="tel:+19177156245">Book now</a>
+        <a class="btn btn--call btn--sm btn--nav-cta btn--nav-cta-desktop" href="tel:+19177156245">Call us</a>
       </div>
       <nav class="nav" id="primary-nav" aria-label="Primary">
-        <a class="nav__book btn btn--call nav__book-mobile" href="tel:+19177156245">Book now</a>
+        <a class="nav__book btn btn--call nav__book-mobile" href="tel:+19177156245">Call us</a>
         <span class="nav__label">Menu</span>
         <a href="#services">Services</a>
         <a href="#why-us">Why us</a>
@@ -52,12 +52,22 @@
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-heading">
-      <div class="hero__media" role="img" aria-label="Heavy equipment at work — junk removal and hauling"></div>
+      <div class="hero__media">
+        <img
+          class="hero__media-img"
+          src="assets/hero.avif?v=2"
+          width="2400"
+          height="1350"
+          alt="Roll-off dumpster loaded with debris — junk removal and hauling"
+          decoding="async"
+          fetchpriority="high"
+        >
+      </div>
       <div class="hero__gridlines" aria-hidden="true"></div>
       <div class="hero__overlay"></div>
       <div class="wrap hero__layout">
         <div class="hero__centerpiece">
-          <p class="hero__eyebrow">Northern NJ · Eco-conscious disposal · Same-week scheduling</p>
+          <p class="hero__eyebrow">Rockland · Eco-conscious disposal · Same-week scheduling</p>
           <h1 class="hero__mega" id="hero-heading">
             <span class="hero__mega-line">Junk removal</span>
             <span class="hero__mega-line hero__mega-line--accent">&amp; hauling</span>
@@ -66,10 +76,7 @@
         <div class="hero__bottom">
           <p class="hero__strap">Turning cluttered spaces into a clean slate — so you can move forward.</p>
           <div class="hero__actions">
-            <a class="btn btn--call" href="tel:+19177156245">Call <span class="nowrap">+1 (917) 715-6245</span></a>
-            <a class="btn btn--outline" href="https://wa.me/19177156245" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-            <a class="btn btn--ghost" href="https://www.google.com/maps/place/Mr+Junk+-+Junk+Removal/@40.7220621,-74.9565203,9z/data=!4m10!1m2!2m1!1smr+junk+junk+removal+!3m6!1s0x6c69f36ce8c59aaf:0x9f833c13807bd014!8m2!3d41.1559894!4d-74.0710441!15sChRtciBqdW5rIGp1bmsgcmVtb3ZhbFoWIhRtciBqdW5rIGp1bmsgcmVtb3ZhbJIBFGp1bmtfcmVtb3ZhbF9zZXJ2aWNlmgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ4b1ZGSlhUbWhqUldONldWaGFSMVpYU2pGT2VrNDFWMjV3YmxkVlJSQULgAQD6AQUIyAIQSQ!16s%2Fg%2F11yxbpsdrc?entry=ttu&amp;g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Google Maps</a>
-            <a class="btn btn--google" href="https://share.google/3RiDHWjnVz6LelkAP" target="_blank" rel="noopener noreferrer">Review us</a>
+            <a class="btn btn--call" href="tel:+19177156245">Call us now</a>
           </div>
         </div>
       </div>
@@ -89,17 +96,17 @@
         <p class="section__subtitle">Residential hauling and cleanup tailored to Northern New Jersey and nearby communities.</p>
         <div class="cards">
           <article class="card">
-            <img class="card__img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=720&q=80" width="720" height="480" alt="Sorted recyclable materials" loading="lazy" decoding="async">
+            <img class="card__img" src="https://californiajunkremovalandhauling.com/wp-content/uploads/2024/02/428047755_202049332965237_2904413830092316767_n-1024x572.jpg" width="1024" height="572" alt="Junk removal truck loaded for hauling" loading="lazy" decoding="async">
             <h3 class="card__title">Junk removal &amp; hauling</h3>
             <p>Furniture, mattresses, appliances, electronics, and general clutter — loaded, hauled, and disposed of responsibly.</p>
           </article>
           <article class="card">
-            <img class="card__img" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=720&q=80" width="720" height="480" alt="Construction site cleanup" loading="lazy" decoding="async">
+            <img class="card__img" src="https://ijunkitnj.com/wp-content/uploads/2023/06/in-order-to-recycle-garbage-a-metal-container-tra-2022-09-19-19-19-46-utc.jpg" width="1200" height="750" alt="Construction debris and material in containers for removal" loading="lazy" decoding="async">
             <h3 class="card__title">Construction cleanouts</h3>
             <p>Renovation leftovers, drywall, lumber scraps, and mixed job-site waste — consolidated and removed so your project stays on track.</p>
           </article>
           <article class="card">
-            <img class="card__img" src="https://images.unsplash.com/photo-1595846518375-74337f82fd46?w=720&q=80" width="720" height="480" alt="Interior demolition and selective tear-out" loading="lazy" decoding="async">
+            <img class="card__img" src="https://images.squarespace-cdn.com/content/v1/55e3a098e4b0aed4a7f8b738/1479789025013-EV4F7O0376Q4ZNMCGRX3/image-asset.jpeg" width="1500" height="1000" alt="Demolition and interior tear-out work" loading="lazy" decoding="async">
             <h3 class="card__title">Demolition</h3>
             <p>Selective interior demo, tear-outs, and strip-outs — we break it down safely so you’re ready for the next phase.</p>
           </article>
@@ -155,10 +162,9 @@
           <h2 class="section__title">Service area &amp; hours</h2>
           <p>Based in Northern New Jersey with coverage throughout nearby counties — confirm your address when you call or message.</p>
           <ul class="hours">
-            <li><span>Monday – Saturday</span> <span>7:00 AM – 7:00 PM</span></li>
+            <li><span>Monday – Saturday</span> <span>9:00 AM – 5:00 PM</span></li>
             <li><span>Sunday</span> <span>By appointment</span></li>
           </ul>
-          <p class="fine-print">Hours shown are placeholders — update to match your Google Business Profile.</p>
           <div class="split__actions">
             <a class="btn btn--call" href="tel:+19177156245">Call <span class="nowrap">+1 (917) 715-6245</span></a>
             <a class="btn btn--outline" href="https://wa.me/19177156245" target="_blank" rel="noopener noreferrer">WhatsApp</a>
